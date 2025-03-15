@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvkk3wk3npvio"]
+
+[ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_65y7v"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_ifshi"]
+[ext_resource type="Texture2D" uid="uid://c53ltysxmo28k" path="res://Coins/Coins/Coins/Original Diminsions/Large/Gold 10 Piece.png" id="3_pvjsx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_001yl"]
+size = Vector2(10, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4by0c"]
+size = Vector2(95, 49)
+
+[sub_resource type="Animation" id="Animation_0nf5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_crgif"]
+resource_name = "pisca"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.605274, 0.605274, 0.605274, 1), Color(0.442911, 0.442911, 0.442911, 1), Color(0.244776, 0.244776, 0.244776, 1), Color(0.0807833, 0.0807834, 0.0807832, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b71wp"]
+_data = {
+"RESET": SubResource("Animation_0nf5x"),
+"pisca": SubResource("Animation_crgif")
+}
+
+[node name="Level_1" type="Node2D"]
+script = ExtResource("1_ifshi")
+
+[node name="Player" parent="." instance=ExtResource("1_65y7v")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Gold10Piece" type="Sprite2D" parent="HUD"]
+position = Vector2(14, 14)
+texture = ExtResource("3_pvjsx")
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 31.0
+offset_right = 71.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1.8049e-08, 0, 0.0381065, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5, 360)
+shape = SubResource("RectangleShape2D_001yl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1290, 0)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-5, 360)
+shape = SubResource("RectangleShape2D_001yl")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(720, 730)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-4.99963, 80.0001)
+shape = SubResource("RectangleShape2D_001yl")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(720, 0)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-4.99963, 80.0001)
+shape = SubResource("RectangleShape2D_001yl")
+
+[node name="Update_Level_Player" type="Area2D" parent="."]
+position = Vector2(1180, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Update_Level_Player"]
+position = Vector2(52.5, -23.5)
+shape = SubResource("RectangleShape2D_4by0c")
+
+[node name="Label" type="Label" parent="Update_Level_Player"]
+offset_left = 5.0
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 16
+text = "Evoluir
+Preço ()"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Update_Level_Player"]
+libraries = {
+"": SubResource("AnimationLibrary_b71wp")
+}
+autoplay = "pisca"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Update_Level_Player" to="." method="_on_update_level_player_body_entered"]

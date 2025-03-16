@@ -319,11 +319,6 @@ shape = SubResource("RectangleShape2D_a0u1q")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="VirtualJoystick" type="Node2D" parent="HUD"]
-position = Vector2(1196, 614)
-script = ExtResource("4_aewlf")
-stick_pressed = ExtResource("5_njxwk")
-
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
 position = Vector2(1, 507)
 scale = Vector2(0.680952, 0.7125)
@@ -332,6 +327,11 @@ texture_pressed = ExtResource("7_krras")
 action = "dash"
 visibility_mode = 1
 
+[node name="VirtualJoystick" type="Node2D" parent="HUD"]
+position = Vector2(1203, 599)
+script = ExtResource("4_aewlf")
+stick_pressed = ExtResource("5_njxwk")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 limit_left = 0
@@ -339,5 +339,4 @@ limit_top = 0
 limit_right = 1280
 limit_bottom = 720
 
-[connection signal="analogic_change" from="HUD/VirtualJoystick" to="." method="_on_virtual_joystick_analogic_change"]
 [connection signal="pressed" from="HUD/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

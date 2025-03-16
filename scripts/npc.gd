@@ -48,19 +48,19 @@ func _ready() -> void:
 	match direcao_destino:
 		# se posição de spawn for 0 vai spawnar no topo e vai para a parte debaixo do mapa 
 		0:
-			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), 0)
+			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), -10)
 			target_pos = Vector2(randf_range(0, map_dimensions.size.x), map_dimensions.size.y)
 		# se posição de spawn for 1 vai spawnar no direita e vai para a parte esquerda do mapa 
 		1:
-			origin_npc = Vector2(map_dimensions.size.x -10, randf_range(10, map_dimensions.size.y -10))
+			origin_npc = Vector2(-10, randf_range(10, map_dimensions.size.y -10))
 			target_pos = Vector2(0, randf_range(0,map_dimensions.size.y))
 		# se posição de spawn for 2 vai spawnar no esquerda e vai para a parte direita do mapa 
 		2:
-			origin_npc = Vector2(10, randf_range(10, map_dimensions.size.y - 10))
+			origin_npc = Vector2(map_dimensions.size.x + 10, randf_range(10, map_dimensions.size.y - 10))
 			target_pos = Vector2(map_dimensions.size.x, randf_range(0, map_dimensions.size.y))
 		# se posição de spawn for 3 vai spawnar no fundo e vai para a parte superior do mapa 
 		3:
-			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), map_dimensions.size.y - 10)
+			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), map_dimensions.size.y + 10)
 			target_pos = Vector2(randf_range(0, map_dimensions.size.x), 0)
 			
 	

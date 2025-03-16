@@ -11,7 +11,7 @@ func _ready() -> void:
 	$Timer.one_shot = false
 
 func _on_timer_timeout() -> void:
-	var npc_position = Vector2(randf_range(10, map_dimensions.size.x -10), randf_range(10, map_dimensions.size.y -10))
+	var npc_position = Vector2(randf_range(-10, map_dimensions.size.x + 10), randf_range(-10, map_dimensions.size.y + 10))
 	var npc_instance = scene_npc.instantiate()
 	add_child(npc_instance)
 	npc_instance.global_position = npc_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cska3whpoh5e5"]
+[gd_scene load_steps=49 format=3 uid="uid://cska3whpoh5e5"]
 
 [ext_resource type="Texture2D" uid="uid://xjsk0s6lfavy" path="res://BVA2/playerIdle.png" id="1_j381s"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v1jh3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds5xmt4kkxgrw" path="res://BVA2/playerRun.png" id="2_h0yx7"]
 [ext_resource type="Script" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="4_aewlf"]
 [ext_resource type="Texture2D" uid="uid://bc6paavcnnwf6" path="res://addons/virtual_joystick/sprites/stick_pressed.png" id="5_njxwk"]
+[ext_resource type="Texture2D" uid="uid://bhg3gwoxiipck" path="res://Sci-Fi Game Icons/Hex/slice30.png" id="7_krras"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2yrl"]
 atlas = ExtResource("2_bnt60")
@@ -310,7 +311,7 @@ position = Vector2(578, 360.5)
 sprite_frames = SubResource("SpriteFrames_wet13")
 animation = &"dash"
 autoplay = "idle"
-frame_progress = 0.120521
+frame_progress = 0.816693
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(578.5, 361)
@@ -319,9 +320,17 @@ shape = SubResource("RectangleShape2D_a0u1q")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="VirtualJoystick" type="Node2D" parent="HUD"]
-position = Vector2(1068, 564)
+position = Vector2(1196, 614)
 script = ExtResource("4_aewlf")
 stick_pressed = ExtResource("5_njxwk")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2(1, 507)
+scale = Vector2(0.680952, 0.7125)
+texture_normal = ExtResource("7_krras")
+texture_pressed = ExtResource("7_krras")
+action = "dash"
+visibility_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -331,3 +340,4 @@ limit_right = 1280
 limit_bottom = 720
 
 [connection signal="analogic_change" from="HUD/VirtualJoystick" to="." method="_on_virtual_joystick_analogic_change"]
+[connection signal="pressed" from="HUD/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

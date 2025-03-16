@@ -4,7 +4,6 @@ class_name  Level
 var scene_npc = preload("res://scenes/npc_1.tscn")
 var tempo_pra_spawnar_npc : float = 3.0
 var map_dimensions
-var scne_npc_2 = preload("res://scenes/npc_2.tscn")
 
 func _ready() -> void:
 	map_dimensions = get_viewport().get_visible_rect()
@@ -18,7 +17,7 @@ func _on_timer_timeout() -> void:
 	npc_instance.global_position = npc_position
 	$Timer.start(tempo_pra_spawnar_npc)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Update_Level_Player/AnimationPlayer.play("pisca")
 	$HUD/Label.text = str(Global.money_actual)
 	if $Player.nivel == 1:
@@ -31,10 +30,6 @@ func _process(delta: float) -> void:
 		$Update_Level_Player/Label.text = "Evoluir
 	Preço = " + str(Global.update_4)
 
-
 func _on_update_level_player_body_entered(body: Node2D) -> void:
 	if body is Player:
 		$Player.update_level()
-		var npc2 = scne_npc_2.instantiate()
-		npc2.global_position = Vector2(480, 480)
-		add_child(npc2)

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name NPC
 
 # velocidade do npc
-const SPEED = 30.0
+var SPEED = 30.0
 
 # se o npc vai comprar um bombom
 var comprar_bombom : float
@@ -130,10 +130,6 @@ func _on_timer_timeout() -> void:
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and comprar_bombom < 0.6 and compra_feita == false:
-		if body.nivel >= bombom_nivel:
-			comprando = true
-			interagir_com_player()
-	elif body is NPC_2 and comprar_bombom < 0.6 and compra_feita == false:
 		if body.nivel >= bombom_nivel:
 			comprando = true
 			interagir_com_player()

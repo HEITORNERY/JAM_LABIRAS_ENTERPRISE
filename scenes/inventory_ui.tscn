@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0wdigesdrupr"]
+
+[ext_resource type="Script" path="res://scripts/inventory_ui.gd" id="1_7n7gt"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7n7gt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -88.0
+offset_right = 256.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 32.0
+current_tab = 1
+
+[node name="Inventario" type="Control" parent="Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ItemListInventario" type="ItemList" parent="Panel/TabContainer/Inventario"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 512.0
+offset_bottom = 145.0
+
+[node name="Loja" type="Control" parent="Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ItemListLoja" type="ItemList" parent="Panel/TabContainer/Loja"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 145.0
+
+[node name="QuitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 448.0
+offset_right = 512.0
+offset_bottom = 32.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 17
+text = "Fechar"
+flat = true
+
+[connection signal="item_selected" from="Panel/TabContainer/Loja/ItemListLoja" to="." method="_on_item_list_loja_item_selected"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

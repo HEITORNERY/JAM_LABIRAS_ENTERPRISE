@@ -1,57 +1,154 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvkk3wk3npvio"]
+[gd_scene load_steps=26 format=4 uid="uid://dvkk3wk3npvio"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_65y7v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifshi"]
 [ext_resource type="Texture2D" uid="uid://c53ltysxmo28k" path="res://Coins/Coins/Coins/Original Diminsions/Large/Gold 10 Piece.png" id="3_pvjsx"]
+[ext_resource type="Texture2D" uid="uid://cxjkihuap8v7u" path="res://Terrain/Ground/Tilemap_Flat.png" id="4_b71mo"]
+[ext_resource type="PackedScene" uid="uid://c0wdigesdrupr" path="res://scenes/inventory_ui.tscn" id="4_i4oli"]
+[ext_resource type="Texture2D" uid="uid://co332vbmwhmsm" path="res://Terrain/Water/Foam/Foam.png" id="5_drt2l"]
+[ext_resource type="Texture2D" uid="uid://cycm3agm26upl" path="res://Terrain/Water/Water.png" id="6_qab7o"]
+[ext_resource type="Texture2D" uid="uid://dyia30fqsk2o4" path="res://Terrain/straight_road.png" id="7_7kuqt"]
+[ext_resource type="Texture2D" uid="uid://c5du3pw1ff7o" path="res://Terrain/objects/1.png" id="8_r1yyf"]
+[ext_resource type="Texture2D" uid="uid://c0ye6bukl7813" path="res://Terrain/objects/BeachDayObjects (1).png" id="9_up52c"]
+[ext_resource type="Texture2D" uid="uid://blmwupm4e22rs" path="res://Terrain/objects/124x124.png" id="10_b3owv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001yl"]
 size = Vector2(10, 1280)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4by0c"]
-size = Vector2(95, 49)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6iuq"]
+texture = ExtResource("4_b71mo")
+texture_region_size = Vector2i(64, 64)
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+6:1/0 = 0
+8:3/0 = 0
 
-[sub_resource type="Animation" id="Animation_0nf5x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
+[sub_resource type="TileSet" id="TileSet_5lktq"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_y6iuq")
 
-[sub_resource type="Animation" id="Animation_crgif"]
-resource_name = "pisca"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.605274, 0.605274, 0.605274, 1), Color(0.442911, 0.442911, 0.442911, 1), Color(0.244776, 0.244776, 0.244776, 1), Color(0.0807833, 0.0807834, 0.0807832, 1), Color(0, 0, 0, 1)]
-}
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hh28"]
+texture = ExtResource("5_drt2l")
+texture_region_size = Vector2i(64, 64)
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/animation_frame_4/duration = 0.1
+0:0/animation_frame_5/duration = 0.1
+0:0/animation_frame_6/duration = 0.1
+0:0/animation_frame_7/duration = 0.1
+0:0/0 = 0
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b71wp"]
-_data = {
-"RESET": SubResource("Animation_0nf5x"),
-"pisca": SubResource("Animation_crgif")
-}
+[sub_resource type="TileSet" id="TileSet_2xhto"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_5hh28")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxipp"]
+texture = ExtResource("6_qab7o")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ub5ns"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wxipp")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ho0ch"]
+texture = ExtResource("7_7kuqt")
+texture_region_size = Vector2i(64, 64)
+5:5/0 = 0
+5:4/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+3:4/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_00dqx"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_ho0ch")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrtjm"]
+texture = ExtResource("8_r1yyf")
+texture_region_size = Vector2i(62, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tm0gt"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_qrtjm")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brgfy"]
+texture = ExtResource("9_up52c")
+texture_region_size = Vector2i(35, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+3:1/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6s4e"]
+texture = ExtResource("10_b3owv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+1:4/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/animation_frame_0/duration = 1.0
+6:7/animation_frame_1/duration = 1.0
+6:7/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wodtb"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_brgfy")
+sources/1 = SubResource("TileSetAtlasSource_f6s4e")
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_ifshi")
 
 [node name="Player" parent="." instance=ExtResource("1_65y7v")]
+z_as_relative = false
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -76,6 +173,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="InventoryButton" type="Button" parent="HUD"]
+offset_left = 1144.0
+offset_top = 232.0
+offset_right = 1224.0
+offset_bottom = 264.0
+theme_override_constants/outline_size = 10
+text = "Melhoria"
+flat = true
+
+[node name="InventoryUI" parent="HUD" instance=ExtResource("4_i4oli")]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
 
@@ -97,7 +205,7 @@ rotation = 1.5708
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-4.99963, 80.0001)
+position = Vector2(-104, 70.0004)
 shape = SubResource("RectangleShape2D_001yl")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -109,34 +217,38 @@ collision_layer = 4
 position = Vector2(-4.99963, 80.0001)
 shape = SubResource("RectangleShape2D_001yl")
 
-[node name="Update_Level_Player" type="Area2D" parent="."]
-position = Vector2(1180, 48)
+[node name="Terrain" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Update_Level_Player"]
-position = Vector2(52.5, -23.5)
-shape = SubResource("RectangleShape2D_4by0c")
+[node name="Sand" type="TileMapLayer" parent="Terrain"]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAkAAAAGAAIAAAABAAkAAAAGAAIAAAACAAkAAAAGAAIAAAADAAkAAAAGAAIAAAAEAAkAAAAGAAIAAAAFAAkAAAAGAAIAAAAGAAkAAAAGAAIAAAAHAAkAAAAGAAIAAAAIAAkAAAAGAAIAAAAJAAkAAAAGAAIAAAAKAAkAAAAGAAIAAAALAAkAAAAGAAIAAAAMAAkAAAAGAAIAAAANAAkAAAAGAAIAAAAOAAkAAAAGAAIAAAATAAkAAAAGAAIAAAASAAkAAAAGAAIAAAARAAkAAAAGAAIAAAAQAAkAAAAGAAIAAAAPAAkAAAAGAAIAAAATAAMAAAAGAAEAAAASAAMAAAAGAAEAAAARAAMAAAAGAAEAAAAQAAMAAAAGAAEAAAAPAAMAAAAGAAEAAAAOAAMAAAAGAAEAAAATAAQAAAAGAAEAAAATAAUAAAAGAAEAAAATAAYAAAAGAAEAAAATAAcAAAAGAAEAAAATAAgAAAAGAAEAAAAAAAgAAAAGAAEAAAAAAAcAAAAGAAEAAAAAAAYAAAAGAAEAAAAAAAUAAAAGAAEAAAAAAAQAAAAGAAEAAAAAAAMAAAAGAAEAAAABAAMAAAAGAAEAAAACAAMAAAAGAAEAAAADAAMAAAAGAAEAAAAEAAMAAAAGAAEAAAAFAAMAAAAGAAEAAAAGAAMAAAAGAAEAAAAHAAMAAAAGAAEAAAAIAAMAAAAGAAEAAAAJAAMAAAAGAAEAAAAKAAMAAAAGAAEAAAALAAMAAAAGAAEAAAAMAAMAAAAGAAEAAAANAAMAAAAGAAEAAAADAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAGAAUAAAAGAAEAAAAGAAQAAAAGAAEAAAAFAAQAAAAGAAEAAAAEAAQAAAAGAAEAAAADAAQAAAAGAAEAAAACAAQAAAAGAAEAAAABAAQAAAAGAAEAAAABAAUAAAAGAAEAAAABAAYAAAAGAAEAAAABAAcAAAAGAAEAAAABAAgAAAAGAAEAAAACAAgAAAAGAAEAAAACAAcAAAAGAAEAAAACAAYAAAAGAAEAAAACAAUAAAAGAAEAAAADAAUAAAAGAAEAAAAEAAUAAAAGAAEAAAAEAAYAAAAGAAEAAAAEAAcAAAAGAAEAAAADAAcAAAAGAAEAAAADAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAgAAAAGAAEAAAAFAAcAAAAGAAEAAAAFAAYAAAAGAAEAAAAFAAUAAAAGAAEAAAAGAAcAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAHAAcAAAAGAAEAAAAHAAYAAAAGAAEAAAAHAAUAAAAGAAEAAAAHAAQAAAAGAAEAAAAIAAQAAAAGAAEAAAAIAAUAAAAGAAEAAAAIAAYAAAAGAAEAAAAIAAcAAAAGAAEAAAAIAAgAAAAGAAEAAAAJAAgAAAAGAAEAAAAJAAcAAAAGAAEAAAAJAAYAAAAGAAEAAAAJAAUAAAAGAAEAAAAJAAQAAAAGAAEAAAAKAAQAAAAGAAEAAAAKAAUAAAAGAAEAAAAKAAYAAAAGAAEAAAAKAAcAAAAGAAEAAAAKAAgAAAAGAAEAAAALAAgAAAAGAAEAAAALAAcAAAAGAAEAAAALAAYAAAAGAAEAAAALAAUAAAAGAAEAAAALAAQAAAAGAAEAAAAMAAQAAAAGAAEAAAAMAAUAAAAGAAEAAAAMAAYAAAAGAAEAAAAMAAcAAAAGAAEAAAAMAAgAAAAGAAEAAAANAAgAAAAGAAEAAAANAAcAAAAGAAEAAAANAAYAAAAGAAEAAAANAAUAAAAGAAEAAAANAAQAAAAGAAEAAAAOAAQAAAAGAAEAAAAOAAUAAAAGAAEAAAAOAAYAAAAGAAEAAAAOAAcAAAAGAAEAAAAOAAgAAAAGAAEAAAAPAAgAAAAGAAEAAAAPAAcAAAAGAAEAAAAPAAYAAAAGAAEAAAAPAAUAAAAGAAEAAAAPAAQAAAAGAAEAAAAQAAQAAAAGAAEAAAAQAAUAAAAGAAEAAAAQAAYAAAAGAAEAAAAQAAcAAAAGAAEAAAAQAAgAAAAGAAEAAAARAAgAAAAGAAEAAAARAAcAAAAGAAEAAAARAAYAAAAGAAEAAAARAAUAAAAGAAEAAAARAAQAAAAGAAEAAAASAAQAAAAGAAEAAAASAAUAAAAGAAEAAAASAAYAAAAGAAEAAAASAAcAAAAGAAEAAAASAAgAAAAGAAEAAAA=")
+tile_set = SubResource("TileSet_5lktq")
 
-[node name="Label" type="Label" parent="Update_Level_Player"]
-offset_left = 5.0
-offset_top = -48.0
-offset_right = 100.0
-offset_bottom = 1.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 16
-text = "Evoluir
-Preço ()"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+[node name="foam" type="TileMapLayer" parent="Terrain"]
+z_index = -2
+z_as_relative = false
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_2xhto")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Update_Level_Player"]
-libraries = {
-"": SubResource("AnimationLibrary_b71wp")
-}
-autoplay = "pisca"
+[node name="water" type="TileMapLayer" parent="Terrain"]
+z_index = -3
+z_as_relative = false
+tile_map_data = PackedByteArray("AAACAAsAAAAAAAAAAAABAAsAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAATAAoAAAAAAAAAAAASAAoAAAAAAAAAAAARAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAANAAoAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ub5ns")
+
+[node name="road" type="TileMapLayer" parent="Terrain"]
+z_index = -1
+tile_map_data = PackedByteArray("AAAFAAIAAAAFAAAAAFAEAAIAAAAFAAEAAFADAAIAAAAFAAIAAFACAAIAAAAFAAMAAFABAAIAAAAFAAQAAFAAAAIAAAAFAAUAAFALAAIAAAAFAAAAAFAKAAIAAAAFAAEAAFAJAAIAAAAFAAIAAFAIAAIAAAAFAAMAAFAHAAIAAAAFAAQAAFAGAAIAAAAFAAUAAFARAAIAAAAFAAUAAFAQAAIAAAAFAAEAAFAPAAIAAAAFAAIAAFAOAAIAAAAFAAMAAFANAAIAAAAFAAQAAFAMAAIAAAAFAAUAAFAWAAIAAAAFAAAAAFAVAAIAAAAFAAEAAFAUAAIAAAAFAAIAAFATAAIAAAAFAAMAAFASAAIAAAAFAAQAAFATAAAAAAACAAAAAFATAAEAAAADAAAAAFASAAAAAAACAAEAAFASAAEAAAADAAEAAFARAAAAAAACAAIAAFARAAEAAAADAAIAAFAQAAAAAAACAAMAAFAQAAEAAAADAAMAAFAPAAAAAAACAAQAAFAPAAEAAAADAAQAAFAOAAAAAAACAAUAAFAOAAEAAAADAAUAAFANAAAAAAACAAAAAFANAAEAAAADAAAAAFAMAAAAAAACAAEAAFAMAAEAAAADAAEAAFALAAAAAAACAAIAAFALAAEAAAADAAIAAFAKAAAAAAACAAMAAFAKAAEAAAADAAMAAFAJAAAAAAACAAQAAFAJAAEAAAADAAQAAFAIAAAAAAACAAUAAFAIAAEAAAADAAUAAFAHAAAAAAACAAAAAFAHAAEAAAADAAAAAFAGAAAAAAACAAEAAFAGAAEAAAADAAEAAFAFAAAAAAACAAIAAFAFAAEAAAADAAIAAFAEAAAAAAACAAMAAFAEAAEAAAADAAMAAFADAAAAAAACAAQAAFADAAEAAAADAAQAAFACAAAAAAACAAUAAFACAAEAAAADAAUAAFABAAAAAAACAAAAAFABAAEAAAADAAAAAFAAAAAAAAACAAEAAFAAAAEAAAADAAEAAFD//wAAAAACAAIAAFD//wEAAAADAAIAAFD+/wAAAAACAAMAAFD+/wEAAAADAAMAAFD9/wAAAAACAAQAAFD9/wEAAAADAAQAAFD8/wAAAAACAAUAAFD8/wEAAAADAAUAAFA=")
+tile_set = SubResource("TileSet_00dqx")
+
+[node name="stall" type="TileMapLayer" parent="Terrain"]
+tile_map_data = PackedByteArray("AAASAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tm0gt")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Terrain"]
+position = Vector2(25, -1)
+tile_map_data = PackedByteArray("AAACAAoAAQAAAAAAAAACAAsAAQAAAAEAAAADAAoAAQABAAAAAAADAAsAAQABAAEAAAABAA0AAQAGAAcAAAAHAAcAAAAAAAAAAAAIAAcAAAABAAAAAAAHAAgAAAABAAEAAAAIAAgAAAAEAAEAAAAEAAsAAQACAAcAAAAhABAAAQAGAAcAAAAYABEAAQABAAcAAAAcAAwAAQABAAYAAAANABEAAQAAAAcAAAASAA4AAQAAAAYAAAAKAAcAAAAAAAAAAAALAAcAAAABAAAAAAAKAAgAAAACAAEAAAALAAgAAAADAAEAAAAEAAcAAAAAAAAAAAAFAAcAAAABAAAAAAAEAAgAAAAEAAEAAAAFAAgAAAADAAEAAAABAAcAAAAAAAAAAAACAAcAAAABAAAAAAABAAgAAAACAAEAAAACAAgAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_wodtb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Update_Level_Player" to="." method="_on_update_level_player_body_entered"]
+[connection signal="pressed" from="HUD/InventoryButton" to="." method="_on_inventory_button_pressed"]

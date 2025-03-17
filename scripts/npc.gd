@@ -31,13 +31,12 @@ var preco_bombom : int
 # cada bombom tem seu nível
 var bombom_nivel : int
 
+var bombom_escolhido : int
+
 # hora de ver se esse npc vai comprar o bombom ou não
 func _ready() -> void:
 	randomize()
-	var direcao_destino : int = randi() % 4
-	
-	# origem do npc
-	var origin_npc : Vector2
+	var direcao_destino : int = randi() % 2
 	
 	# destino do npc
 	var target_pos : Vector2
@@ -46,34 +45,22 @@ func _ready() -> void:
 	var map_dimensions = get_viewport().get_visible_rect()
 	
 	match direcao_destino:
-		# se posição de spawn for 0 vai spawnar no topo e vai para a parte debaixo do mapa 
+		# se posição de spawn for 0 vai spawnar na direita e vai para a parte esquerda do mapa 
 		0:
-			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), -10)
-			target_pos = Vector2(randf_range(0, map_dimensions.size.x), map_dimensions.size.y)
-		# se posição de spawn for 1 vai spawnar no direita e vai para a parte esquerda do mapa 
+			target_pos = Vector2(map_dimensions.size.x, randf_range(192.0, 632.0))
+		# se posição de spawn for 1 vai spawnar no esquerda e vai para a parte direita do mapa 
 		1:
-			origin_npc = Vector2(-10, randf_range(10, map_dimensions.size.y -10))
-			target_pos = Vector2(0, randf_range(0,map_dimensions.size.y))
-		# se posição de spawn for 2 vai spawnar no esquerda e vai para a parte direita do mapa 
-		2:
-			origin_npc = Vector2(map_dimensions.size.x + 10, randf_range(10, map_dimensions.size.y - 10))
-			target_pos = Vector2(map_dimensions.size.x, randf_range(0, map_dimensions.size.y))
-		# se posição de spawn for 3 vai spawnar no fundo e vai para a parte superior do mapa 
-		3:
-			origin_npc = Vector2(randf_range(10, map_dimensions.size.x -10), map_dimensions.size.y + 10)
-			target_pos = Vector2(randf_range(0, map_dimensions.size.x), 0)
+			target_pos = Vector2(0.0, randf_range(192.0, 632.0))
 			
-	
 	# vou fazer esse npc saber a direção pro movimento
-	direction = (target_pos - origin_npc).normalized()
+	direction = (target_pos - global_position).normalized()
 	
 	# probabilidade desse npc comprar um bombom
 	comprar_bombom = randf() 
 	
 	# se o npc pode comprar um bombom, então o doce deve aparecer sobre sua cabeça
 	if comprar_bombom < 0.6:
-		var bombom_escolhido = randi() % 4
-		add_to_group("NPCcomBombom")
+		bombom_escolhido = randi() % 4
 		
 		match bombom_escolhido:
 			0:
@@ -126,7 +113,15 @@ func _on_timer_timeout() -> void:
 		compra_feita = true
 		$item.texture = null
 		Global.venda_feita(preco_bombom)
-		remove_from_group("NPCcomBombom")
+		match bombom_escolhido:
+			0: 
+				Global.inventario["bombom_1"].quantidade -= 1
+			1:
+				Global.inventario["bombom_2"].quantidade -= 1
+			3:
+				Global.inventario["bombom_3"].quantidade -= 1
+			4:
+				Global.inventario["bombom_4"].quantidade -= 1
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and comprar_bombom < 0.6 and compra_feita == false:

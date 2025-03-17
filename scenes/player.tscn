@@ -300,7 +300,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0u1q"]
-size = Vector2(11, 41)
+size = Vector2(12, 43)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -309,12 +309,11 @@ script = ExtResource("1_v1jh3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(578, 360.5)
 sprite_frames = SubResource("SpriteFrames_wet13")
-animation = &"dash"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.816693
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(578.5, 361)
+position = Vector2(579, 360.5)
 shape = SubResource("RectangleShape2D_a0u1q")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -338,5 +337,10 @@ limit_left = 0
 limit_top = 0
 limit_right = 1280
 limit_bottom = 720
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
 
 [connection signal="pressed" from="HUD/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

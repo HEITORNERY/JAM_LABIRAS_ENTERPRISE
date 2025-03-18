@@ -109,3 +109,8 @@ func _on_touch_screen_button_pressed() -> void:
 		dash_duration = dash_timer
 		$AnimatedSprite2D.play("dash")
 		velocity = dash_direction.normalized() * dash_speed
+
+func dead() -> void:
+	set_physics_process(false)
+	$AnimatedSprite2D.play("dash")
+	get_tree().reload_current_scene()

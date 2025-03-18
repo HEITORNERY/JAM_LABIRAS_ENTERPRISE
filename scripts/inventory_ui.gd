@@ -60,5 +60,5 @@ func _on_item_list_loja_item_selected(index: int) -> void:
 		comprar_item("bombom_4")
 		player.update_level()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	atualizar_inventario()

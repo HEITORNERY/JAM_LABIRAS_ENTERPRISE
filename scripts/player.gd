@@ -85,20 +85,17 @@ func _on_virtual_joystick_analogic_change(move: Vector2) -> void:
 		$AnimatedSprite2D.play("idle")
 
 func update_level() -> void:
-	if Global.money_actual >= Global.update_2 and nivel == 1:
-		Global.gasto(Global.money_actual)
+	if nivel == 1 and Global.inventario["bombom_2"].quantidade >= 1:
 		nivel += 1
 		SPEED += 10
 		dash_speed += 0.02
 		dash_load -= 0.2
-	elif Global.money_actual >= Global.update_3 and nivel == 2:
-		Global.gasto(Global.money_actual)
+	elif nivel == 2 and Global.inventario["bombom_3"].quantidade >= 1:
 		nivel += 1
 		SPEED += 20
 		dash_speed += 0.04
 		dash_load -= 0.3
-	elif Global.money_actual >= Global.update_4 and nivel == 3:
-		Global.gasto(Global.money_actual)
+	elif nivel == 3 and Global.inventario["bombom_4"].quantidade >= 1:
 		nivel += 1
 		SPEED += 30
 		dash_speed += 0.08

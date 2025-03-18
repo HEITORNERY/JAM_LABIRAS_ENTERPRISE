@@ -1,6 +1,8 @@
 extends Control
 class_name InventoryUI
 
+@export var player : Player
+
 func _ready() -> void:
 	# abrir inventario 
 	fechar_inventario()
@@ -50,10 +52,13 @@ func _on_item_list_loja_item_selected(index: int) -> void:
 		comprar_item("bombom_1")
 	elif index == 1:
 		comprar_item("bombom_2")
+		player.update_level()
 	elif index == 2:
 		comprar_item("bombom_3")
+		player.update_level()
 	elif index == 3:
 		comprar_item("bombom_4")
+		player.update_level()
 
 func _process(delta: float) -> void:
 	atualizar_inventario()

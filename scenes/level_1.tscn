@@ -182,7 +182,8 @@ theme_override_constants/outline_size = 10
 text = "Melhoria"
 flat = true
 
-[node name="InventoryUI" parent="HUD" instance=ExtResource("4_i4oli")]
+[node name="InventoryUI" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("4_i4oli")]
+player = NodePath("../../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4

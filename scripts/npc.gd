@@ -110,21 +110,43 @@ func interagir_com_player() -> void:
 func _on_timer_timeout() -> void:
 	comprando = false
 	if comprando == false:
-		compra_feita = true
-		$item.texture = null
-		Global.venda_feita(preco_bombom)
 		match bombom_escolhido:
 			0: 
-				Global.inventario["bombom_1"].quantidade -= 1
+				if Global.inventario["bombom_1"].quantidade >= 1:
+					Global.inventario["bombom_1"].quantidade -= 1
+					compra_feita = true
+					$item.texture = null
+					Global.venda_feita(preco_bombom)
 			1:
-				Global.inventario["bombom_2"].quantidade -= 1
+				if Global.inventario["bombom_2"].quantidade >= 1:
+					Global.inventario["bombom_2"].quantidade -= 1
+					compra_feita = true
+					$item.texture = null
+					Global.venda_feita(preco_bombom)
 			3:
-				Global.inventario["bombom_3"].quantidade -= 1
+				if Global.inventario["bombom_3"].quantidade >= 1:
+					Global.inventario["bombom_3"].quantidade -= 1
+					compra_feita = true
+					$item.texture = null
+					Global.venda_feita(preco_bombom)
 			4:
-				Global.inventario["bombom_4"].quantidade -= 1
+				if Global.inventario["bombom_4"].quantidade >= 1:
+					Global.inventario["bombom_4"].quantidade -= 1
+					compra_feita = true
+					$item.texture = null
+					Global.venda_feita(preco_bombom)
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and comprar_bombom < 0.6 and compra_feita == false:
-		if body.nivel >= bombom_nivel:
+		if body.nivel >= bombom_nivel and Global.inventario["bombom_1"].quantidade >= 1:
+			comprando = true
+			interagir_com_player()
+		elif body.nivel >= bombom_nivel and Global.inventario["bombom_2"].quantidade >= 1:
+			comprando = true
+			interagir_com_player()
+		elif body.nivel >= bombom_nivel and Global.inventario["bombom_3"].quantidade >= 1:
+			comprando = true
+			interagir_com_player()
+		elif body.nivel >= bombom_nivel and Global.inventario["bombom_4"].quantidade >= 1:
 			comprando = true
 			interagir_com_player()

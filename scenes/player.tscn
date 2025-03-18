@@ -344,3 +344,4 @@ drag_vertical_enabled = true
 editor_draw_drag_margin = true
 
 [connection signal="pressed" from="HUD/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="analogic_change" from="HUD/VirtualJoystick" to="." method="_on_virtual_joystick_analogic_change"]

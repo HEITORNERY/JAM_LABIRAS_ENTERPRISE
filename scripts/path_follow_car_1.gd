@@ -6,7 +6,7 @@ var car_1 : PackedScene = preload("res://scenes/carro_1.tscn")
 var car_instance : CharacterBody2D = null
 
 func _ready() -> void:
-	$"../Timer".start(0.1)
+	$"../Timer".start(0.4)
 	car_instance = car_1.instantiate()
 	add_child(car_instance)
 
@@ -19,4 +19,4 @@ func _physics_process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	car_instance = car_1.instantiate()
 	add_child(car_instance)
-	$"../Timer".start(0.1)
+	$"../Timer".start(0.4)

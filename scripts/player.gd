@@ -12,6 +12,8 @@ var dash_direction : Vector2
 var dash_load : float = 2.0
 var preprarar_dash : float
 var vector_joystick : Vector2
+var pedido_para_fazer = null
+var pedido_feito : bool = false
 
 func _ready() -> void:
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":

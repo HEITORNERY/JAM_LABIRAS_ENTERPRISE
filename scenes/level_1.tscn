@@ -199,6 +199,16 @@ flat = true
 [node name="InventoryUI" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("4_i4oli")]
 player = NodePath("../../Player")
 
+[node name="ReloadButton" type="Button" parent="HUD"]
+offset_left = 1216.0
+offset_right = 1280.0
+offset_bottom = 31.0
+theme_override_constants/outline_size = 10
+text = "Reload"
+flat = true
+autowrap_mode = 3
+icon_alignment = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
 
@@ -285,5 +295,6 @@ script = ExtResource("12_08ww0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="HUD/ReloadButton" to="." method="_on_reload_button_pressed"]
 [connection signal="timeout" from="Path2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Path2D2/Timer" to="Path2D2/PathFollow2D" method="_on_timer_timeout"]

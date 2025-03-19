@@ -1,7 +1,7 @@
 extends Node
 
 # armazenar o dinheiro do player
-var money_actual : int = 30
+var money_actual : int = 0
 
 # dinheiro para aumentar pro nível 2
 var update_2 : int = 15

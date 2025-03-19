@@ -22,3 +22,6 @@ func _on_inventory_button_pressed() -> void:
 
 func _process(_delta: float) -> void:
 	$HUD/Label.text = str(Global.money_actual)
+
+func _on_reload_button_pressed() -> void:
+	get_tree().reload_current_scene()

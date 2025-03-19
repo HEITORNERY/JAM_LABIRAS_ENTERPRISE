@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://u3eameqlf3gw"]
+
+[ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_7nqxw"]
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_wlumy"]
+[ext_resource type="Texture2D" uid="uid://cu5vq4rkmb8o5" path="res://Coins/Coins/Coins/Large Diminsions/Large/Gold 10 Piece.png" id="3_8x7ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgbh4"]
+size = Vector2(50, 722)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec3xm"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_wlumy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(399, 359)
+shape = SubResource("RectangleShape2D_tgbh4")
+
+[node name="Player" parent="." instance=ExtResource("1_7nqxw")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-72, 64)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(-72, 264)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-72, 448)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-72, 656)
+
+[node name="Forno" type="Area2D" parent="."]
+position = Vector2(1133, 73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forno"]
+shape = SubResource("RectangleShape2D_ec3xm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Forno"]
+
+[node name="Timer" type="Timer" parent="Forno"]
+one_shot = true
+
+[node name="Label" type="Label" parent="Forno"]
+offset_left = -53.0
+offset_top = -34.0
+offset_right = 58.0
+offset_bottom = -11.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 20
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD"]
+position = Vector2(28.625, 29.375)
+scale = Vector2(0.0511161, 0.0524554)
+texture = ExtResource("3_8x7ep")
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 64.0
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 46
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="body_entered" from="Forno" to="." method="_on_forno_body_entered"]
+[connection signal="timeout" from="Forno/Timer" to="." method="_on_timer_timeout"]

@@ -1,17 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://u3eameqlf3gw"]
+[gd_scene load_steps=9 format=3 uid="uid://u3eameqlf3gw"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_7nqxw"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_wlumy"]
 [ext_resource type="Texture2D" uid="uid://cu5vq4rkmb8o5" path="res://Coins/Coins/Coins/Large Diminsions/Large/Gold 10 Piece.png" id="3_8x7ep"]
-[ext_resource type="PackedScene" uid="uid://dbok50sjd5una" path="res://scenes/cell_phone.tscn" id="4_xoxxc"]
+[ext_resource type="Texture2D" uid="uid://c8bbwwd7i723w" path="res://Terrain/kitchen/tileset.png" id="4_ixi1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgbh4"]
-size = Vector2(45, 722)
+size = Vector2(50, 722)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ec3xm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u7wh"]
-size = Vector2(1280, 26)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5mha"]
+texture = ExtResource("4_ixi1g")
+5:14/0 = 0
+6:14/0 = 0
+6:13/0 = 0
+5:13/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3iuf4"]
+sources/0 = SubResource("TileSetAtlasSource_l5mha")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_wlumy")
@@ -21,16 +28,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(393.5, 359)
-shape = SubResource("RectangleShape2D_tgbh4")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(912, 0)
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(396, 359)
+position = Vector2(399, 359)
 shape = SubResource("RectangleShape2D_tgbh4")
 
 [node name="Player" parent="." instance=ExtResource("1_7nqxw")]
@@ -48,7 +46,7 @@ position = Vector2(-72, 448)
 position = Vector2(-72, 656)
 
 [node name="Forno" type="Area2D" parent="."]
-position = Vector2(784, 352)
+position = Vector2(1133, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Forno"]
 shape = SubResource("RectangleShape2D_ec3xm")
@@ -99,26 +97,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CellPhone" parent="HUD" instance=ExtResource("4_xoxxc")]
-position = Vector2(1216, 80)
+[node name="kitchen" type="Node" parent="."]
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(632, 736)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(8, -3)
-shape = SubResource("RectangleShape2D_6u7wh")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(632, -8)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(8, -3)
-shape = SubResource("RectangleShape2D_6u7wh")
+[node name="TileMapLayer" type="TileMapLayer" parent="kitchen"]
+tile_map_data = PackedByteArray(0, 0, 54, 0, 32, 0, 0, 0, 5, 0, 14, 0, 0, 0)
+tile_set = SubResource("TileSet_3iuf4")
 
 [connection signal="body_entered" from="Forno" to="." method="_on_forno_body_entered"]
 [connection signal="timeout" from="Forno/Timer" to="." method="_on_timer_timeout"]

@@ -59,6 +59,9 @@ func _on_item_list_loja_item_selected(index: int) -> void:
 	elif index == 3:
 		comprar_item("bombom_4")
 		player.update_level()
+	elif index == 4:
+		Global.gasto(Global.loja["proxima_fase"].preço)
+		get_tree().change_scene_to_file("res://scenes/level_2.tscn")
 
 func _process(_delta: float) -> void:
 	atualizar_inventario()

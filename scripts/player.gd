@@ -115,4 +115,4 @@ func _on_touch_screen_button_pressed() -> void:
 func dead() -> void:
 	set_physics_process(false)
 	$AnimatedSprite2D.play("dash")
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/death.tscn")

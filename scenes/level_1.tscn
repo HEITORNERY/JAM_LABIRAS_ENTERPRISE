@@ -87,16 +87,21 @@ sources/0 = SubResource("TileSetAtlasSource_ho0ch")
 texture = ExtResource("8_r1yyf")
 texture_region_size = Vector2i(62, 64)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_tm0gt"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 7
+terrain_set_0/mode = 1
 sources/0 = SubResource("TileSetAtlasSource_qrtjm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brgfy"]
 texture = ExtResource("9_up52c")
 texture_region_size = Vector2i(35, 60)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 7.95495, 4.06586, 0.530331, 0.883884, -9.01561, 13.6118, -16, 15.7331, -18.9151)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8.66206, -2.2981, -0.176777, -0.883883, -7.6014, -5.83363, -16, -11.844, -16, -16, -16)
 2:0/0 = 0
 3:0/0 = 0
 2:1/0 = 0
@@ -118,9 +123,13 @@ texture_region_size = Vector2i(35, 60)
 texture = ExtResource("10_b3owv")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.530329, 8.66206, -2.65165, 16, 16, 16, 16, 11.1369, 7.95495, 11.844, 5.12652, 3.71231, 0.530331, 2.65165)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.95495, 10.4298, -16, 11.1369, -16, 16, 0.883884, 16, -0.530329, 9.36916, -1.59099, 3.35876, -6.89429, 4.06586)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.18718, -7.24784, 7.24784, -0.530329, 8.66206, -0.530329, 1.23744, -1.59099, -4.77297, -1.23744, -11.1369, -16, -6.89429)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.2981, -11.844, -1.23744, 6.89429, 2.2981, 6.54074, 10.0763, 6.18718, 16, 6.18718, 16, -11.1369, 18.9151, -13.2583)
 0:2/0 = 0
 1:2/0 = 0
 0:5/0 = 0
@@ -143,6 +152,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_wodtb"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 7
 sources/0 = SubResource("TileSetAtlasSource_brgfy")
 sources/1 = SubResource("TileSetAtlasSource_f6s4e")
 
@@ -162,7 +172,6 @@ point_count = 10
 script = ExtResource("1_ifshi")
 
 [node name="Player" parent="." instance=ExtResource("1_65y7v")]
-z_as_relative = false
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -271,6 +280,7 @@ tile_map_data = PackedByteArray("AAASAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_tm0gt")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Terrain"]
+z_index = -1
 position = Vector2(25, -1)
 tile_map_data = PackedByteArray("AAACAAoAAQAAAAAAAAACAAsAAQAAAAEAAAADAAoAAQABAAAAAAADAAsAAQABAAEAAAABAA0AAQAGAAcAAAAHAAcAAAAAAAAAAAAIAAcAAAABAAAAAAAHAAgAAAABAAEAAAAIAAgAAAAEAAEAAAAEAAsAAQACAAcAAAAhABAAAQAGAAcAAAAYABEAAQABAAcAAAAcAAwAAQABAAYAAAANABEAAQAAAAcAAAASAA4AAQAAAAYAAAAKAAcAAAAAAAAAAAALAAcAAAABAAAAAAAKAAgAAAACAAEAAAALAAgAAAADAAEAAAAEAAcAAAAAAAAAAAAFAAcAAAABAAAAAAAEAAgAAAAEAAEAAAAFAAgAAAADAAEAAAABAAcAAAAAAAAAAAACAAcAAAABAAAAAAABAAgAAAACAAEAAAACAAgAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_wodtb")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://b38p053laegfu"]
+
+[ext_resource type="Script" path="res://scripts/mensagem.gd" id="1_1r6oc"]
+
+[node name="Mensagem" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1r6oc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -275.0
+offset_top = -188.0
+offset_right = 279.0
+offset_bottom = 187.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = -175.5
+offset_right = 265.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AceitarButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 319.0
+offset_right = 549.0
+offset_bottom = 371.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+text = "Aceite o risco (-100 moedas)"
+flat = true
+
+[node name="RecusarButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 319.0
+offset_right = 256.0
+offset_bottom = 371.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+text = "Recusar e perca tudo"
+flat = true

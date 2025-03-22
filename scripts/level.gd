@@ -23,5 +23,6 @@ func _on_inventory_button_pressed() -> void:
 func _process(_delta: float) -> void:
 	$HUD/Label.text = str(Global.money_actual)
 
-func _on_reload_button_pressed() -> void:
-	get_tree().reload_current_scene()
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		get_tree().reload_current_scene()

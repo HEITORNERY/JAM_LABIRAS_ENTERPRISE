@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://5fxbgw863nx8"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_53fvt"]
+[ext_resource type="Script" path="res://scripts/level_3.gd" id="1_r31kl"]
+[ext_resource type="Texture2D" uid="uid://rb542qiuduvk" path="res://characters/caminhão.png" id="2_uihn6"]
+[ext_resource type="Script" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="3_1hxti"]
+[ext_resource type="Texture2D" uid="uid://cmp5xtmfbnsud" path="res://Sci-Fi Game Icons/Black/slice23.png" id="3_opw4f"]
+[ext_resource type="Texture2D" uid="uid://bc6paavcnnwf6" path="res://addons/virtual_joystick/sprites/stick_pressed.png" id="4_0an7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdicx"]
+size = Vector2(24, 1296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukld"]
+size = Vector2(33, 104)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_r31kl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, 355)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1304, 8)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-12, 355)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(720, 744)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-12, 72)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(712, 0)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-12, 72)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="Caminhao_Player" type="CharacterBody2D" parent="."]
+position = Vector2(640, 664)
+collision_mask = 6
+script = ExtResource("1_53fvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caminhao_Player"]
+texture = ExtResource("2_uihn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caminhao_Player"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7ukld")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2(48, 576)
+texture_normal = ExtResource("3_opw4f")
+texture_pressed = ExtResource("3_opw4f")
+action = "dash"
+visibility_mode = 1
+
+[node name="VirtualJoystick" type="Node2D" parent="HUD"]
+position = Vector2(1194, 619)
+script = ExtResource("3_1hxti")
+stick_pressed = ExtResource("4_0an7r")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 416.0
+offset_right = 920.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[connection signal="analogic_change" from="HUD/VirtualJoystick" to="Caminhao_Player" method="_on_virtual_joystick_analogic_change"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

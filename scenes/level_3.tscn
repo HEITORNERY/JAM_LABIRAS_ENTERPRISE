@@ -1,18 +1,29 @@
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=4 uid="uid://5fxbgw863nx8"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_r31kl"]
 [ext_resource type="Script" path="res://scripts/caminhao_player.gd" id="2_7ksio"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://5fxbgw863nx8"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_53fvt"]
+[ext_resource type="Script" path="res://scripts/level_3.gd" id="1_r31kl"]
+>>>>>>> 5411589c9d5c51e7bcb6f96beb6d21ef2f457b73
 [ext_resource type="Texture2D" uid="uid://rb542qiuduvk" path="res://characters/caminhão.png" id="2_uihn6"]
 [ext_resource type="Script" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="3_1hxti"]
 [ext_resource type="Texture2D" uid="uid://cmp5xtmfbnsud" path="res://Sci-Fi Game Icons/Black/slice23.png" id="3_opw4f"]
 [ext_resource type="Texture2D" uid="uid://bc6paavcnnwf6" path="res://addons/virtual_joystick/sprites/stick_pressed.png" id="4_0an7r"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://be8kpch4fig26" path="res://Terrain/road assets/straight_road.png" id="7_7n1tt"]
 [ext_resource type="Texture2D" uid="uid://crce3gliuntul" path="res://Terrain/road assets/green_ground.png" id="8_p4fdo"]
+=======
+>>>>>>> 5411589c9d5c51e7bcb6f96beb6d21ef2f457b73
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdicx"]
 size = Vector2(24, 1296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukld"]
+<<<<<<< HEAD
 size = Vector2(67.5, 104)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qtaq"]
@@ -91,6 +102,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_8qtaq")
 sources/1 = SubResource("TileSetAtlasSource_smty0")
+=======
+size = Vector2(33, 104)
+>>>>>>> 5411589c9d5c51e7bcb6f96beb6d21ef2f457b73
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_r31kl")
@@ -131,6 +145,7 @@ shape = SubResource("RectangleShape2D_qdicx")
 [node name="Caminhao_Player" type="CharacterBody2D" parent="."]
 position = Vector2(640, 664)
 collision_mask = 6
+<<<<<<< HEAD
 script = ExtResource("2_7ksio")
 
 [node name="Sprite2D" type="Sprite2D" parent="Caminhao_Player"]
@@ -139,6 +154,15 @@ texture = ExtResource("2_uihn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caminhao_Player"]
 position = Vector2(140, -2)
+=======
+script = ExtResource("1_53fvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caminhao_Player"]
+texture = ExtResource("2_uihn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caminhao_Player"]
+position = Vector2(-0.5, 0)
+>>>>>>> 5411589c9d5c51e7bcb6f96beb6d21ef2f457b73
 shape = SubResource("RectangleShape2D_7ukld")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -162,6 +186,7 @@ one_shot = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+<<<<<<< HEAD
 offset_left = 333.0
 offset_right = 920.0
 offset_bottom = 23.0
@@ -178,5 +203,12 @@ tile_map_data = PackedByteArray("AAAnABYAAQAAAAAAAAAnABUAAQAAAAAAAAAnABQAAQAAAAA
 tile_set = SubResource("TileSet_5rc8o")
 
 [connection signal="pressed" from="HUD/TouchScreenButton" to="Caminhao_Player" method="_on_touch_screen_button_pressed"]
+=======
+offset_left = 416.0
+offset_right = 920.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+>>>>>>> 5411589c9d5c51e7bcb6f96beb6d21ef2f457b73
 [connection signal="analogic_change" from="HUD/VirtualJoystick" to="Caminhao_Player" method="_on_virtual_joystick_analogic_change"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

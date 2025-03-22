@@ -14,6 +14,13 @@ func iniciar_mensagem() -> void:
 	for letter in message_label:
 		$Panel/Label.text += letter
 		await get_tree().create_timer(delay_text).timeout
-		$Panel/AceitarButton.visible = true
-		$Panel/RecusarButton.visible = true
+	$Panel/AceitarButton.visible = true
+	$Panel/RecusarButton.visible = true
 	
+func _on_aceitar_button_pressed() -> void:
+	Global.gasto(Global.money_actual)
+	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+
+func _on_recusar_button_pressed() -> void:
+	Global.gasto(Global.money_actual)
+	get_tree().change_scene_to_file("res://scenes/level_3.tscn")

@@ -1,0 +1,182 @@
+[gd_scene load_steps=14 format=4 uid="uid://5fxbgw863nx8"]
+
+[ext_resource type="Script" path="res://scripts/level_3.gd" id="1_r31kl"]
+[ext_resource type="Script" path="res://scripts/caminhao_player.gd" id="2_7ksio"]
+[ext_resource type="Texture2D" uid="uid://rb542qiuduvk" path="res://characters/caminhão.png" id="2_uihn6"]
+[ext_resource type="Script" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="3_1hxti"]
+[ext_resource type="Texture2D" uid="uid://cmp5xtmfbnsud" path="res://Sci-Fi Game Icons/Black/slice23.png" id="3_opw4f"]
+[ext_resource type="Texture2D" uid="uid://bc6paavcnnwf6" path="res://addons/virtual_joystick/sprites/stick_pressed.png" id="4_0an7r"]
+[ext_resource type="Texture2D" uid="uid://be8kpch4fig26" path="res://Terrain/road assets/straight_road.png" id="7_7n1tt"]
+[ext_resource type="Texture2D" uid="uid://crce3gliuntul" path="res://Terrain/road assets/green_ground.png" id="8_p4fdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdicx"]
+size = Vector2(24, 1296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukld"]
+size = Vector2(67.5, 104)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qtaq"]
+texture = ExtResource("7_7n1tt")
+texture_region_size = Vector2i(32, 32)
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+6:10/0 = 0
+5:10/0 = 0
+5:9/0 = 0
+5:8/0 = 0
+5:7/0 = 0
+5:6/0 = 0
+5:5/0 = 0
+5:4/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+6:4/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+6:7/0 = 0
+6:8/0 = 0
+6:9/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smty0"]
+texture = ExtResource("8_p4fdo")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5rc8o"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_8qtaq")
+sources/1 = SubResource("TileSetAtlasSource_smty0")
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_r31kl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, 355)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1304, 8)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-12, 355)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(720, 744)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-12, 72)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(712, 0)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-12, 72)
+shape = SubResource("RectangleShape2D_qdicx")
+
+[node name="Caminhao_Player" type="CharacterBody2D" parent="."]
+position = Vector2(640, 664)
+collision_mask = 6
+script = ExtResource("2_7ksio")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caminhao_Player"]
+position = Vector2(141, -2)
+texture = ExtResource("2_uihn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caminhao_Player"]
+position = Vector2(140, -2)
+shape = SubResource("RectangleShape2D_7ukld")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2(48, 576)
+texture_normal = ExtResource("3_opw4f")
+texture_pressed = ExtResource("3_opw4f")
+action = "dash"
+visibility_mode = 1
+
+[node name="VirtualJoystick" type="Node2D" parent="HUD"]
+position = Vector2(1194, 619)
+script = ExtResource("3_1hxti")
+stick_pressed = ExtResource("4_0an7r")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 333.0
+offset_right = 920.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Terrain" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Terrain"]
+z_index = -2
+tile_map_data = PackedByteArray("AAAnABYAAQAAAAAAAAAnABUAAQAAAAAAAAAnABQAAQAAAAAAAAAnABMAAQAAAAAAAAAnABIAAQAAAAAAAAAnABEAAQAAAAAAAAAnABAAAQAAAAAAAAAnAA8AAQAAAAAAAAAnAA4AAQAAAAAAAAAnAA0AAQAAAAAAAAAnAAwAAQAAAAAAAAAnAAsAAQAAAAAAAAAnAAoAAQAAAAAAAAAnAAkAAQAAAAAAAAAnAAgAAQAAAAAAAAAnAAcAAQAAAAAAAAAnAAYAAQAAAAAAAAAnAAUAAQAAAAAAAAAnAAQAAQAAAAAAAAAnAAMAAQAAAAAAAAAnAAIAAQAAAAAAAAAnAAEAAQAAAAAAAAAnAAAAAQAAAAAAAAAAABYAAQAAAAUAAAAAABUAAQAAAAUAAAAAABQAAQAAAAUAAAAAABMAAQAAAAUAAAAAABIAAQAAAAUAAAAAABEAAQAAAAUAAAAAABAAAQAAAAUAAAAAAA8AAQAAAAUAAAAAAA4AAQAAAAUAAAAAAA0AAQAAAAUAAAD//w0AAQAAAAUAAAD//wwAAQAAAAUAAAD//wsAAQAAAAUAAAD//woAAQAAAAUAAAAAAAsAAQAAAAUAAAAAAAwAAQAAAAUAAAAAAAoAAQAAAAUAAAAAAAkAAQAAAAUAAAAAAAgAAQAAAAUAAAAAAAcAAQAAAAUAAAAAAAYAAQAAAAUAAAAAAAUAAQAAAAUAAAAAAAQAAQAAAAUAAAD//wQAAQAAAAUAAAD//wMAAQAAAAUAAAAAAAMAAQAAAAUAAAAAAAIAAQAAAAUAAAAAAAEAAQAAAAUAAAAAAAAAAQAAAAUAAAD//wAAAQAAAAUAAAD/////AQAAAAUAAAAAAP//AQAAAAUAAAABABEAAAAAAAAAAAABABIAAAAAAAEAAAABABMAAAAAAAIAAAABABQAAAAAAAMAAAABABUAAAAAAAQAAAABABYAAAAAAAUAAAABAAsAAAAAAAAAAAABAAwAAAAAAAEAAAABAA0AAAAAAAIAAAABAA4AAAAAAAMAAAABAA8AAAAAAAQAAAABABAAAAAAAAUAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAABAAcAAAAAAAIAAAABAAgAAAAAAAMAAAABAAkAAAAAAAQAAAABAAoAAAAAAAUAAAABAP//AAAAAAAAAAABAAAAAAAAAAEAAAABAAEAAAAAAAIAAAABAAIAAAAAAAMAAAABAAMAAAAAAAQAAAABAAQAAAAAAAUAAAAmABEAAAAAAAUAADAmABIAAAAAAAQAADAmABMAAAAAAAMAADAmABQAAAAAAAIAADAmABUAAAAAAAEAADAmABYAAAAAAAAAADAmAAsAAAAAAAUAADAmAAwAAAAAAAQAADAmAA0AAAAAAAMAADAmAA4AAAAAAAIAADAmAA8AAAAAAAEAADAmABAAAAAAAAAAADAmAAUAAAAAAAAAADAmAAYAAAAAAAQAADAmAAcAAAAAAAMAADAmAAgAAAAAAAIAADAmAAkAAAAAAAEAADAmAAoAAAAAAAAAADAmAAAAAAAAAAUAADAmAAEAAAAAAAQAADAmAAIAAAAAAAMAADAmAAMAAAAAAAIAADAmAAQAAAAAAAEAADATAAwAAAAFAAEAAAATAA0AAAAFAAIAAAATAA4AAAAFAAMAAAATAA8AAAAFAAQAAAATABAAAAAFAAUAAAATABEAAAAFAAYAAAATABIAAAAFAAcAAAATABMAAAAFAAgAAAATABQAAAAFAAkAAAATABUAAAAFAAoAAAATABYAAAAFAAsAAAAUAAwAAAAGAAEAAAAUAA0AAAAGAAIAAAAUAA4AAAAGAAMAAAAUAA8AAAAGAAQAAAAUABAAAAAGAAUAAAAUABEAAAAGAAYAAAAUABIAAAAGAAcAAAAUABMAAAAGAAgAAAAUABQAAAAGAAkAAAAUABUAAAAGAAoAAAAUABYAAAAGAAsAAAATAAAAAAAFAAEAAAATAAEAAAAFAAIAAAATAAIAAAAFAAMAAAATAAMAAAAFAAQAAAATAAQAAAAFAAUAAAATAAUAAAAFAAYAAAATAAYAAAAFAAcAAAATAAcAAAAFAAgAAAATAAgAAAAFAAkAAAATAAkAAAAFAAoAAAATAAoAAAAFAAsAAAAUAAAAAAAGAAEAAAAUAAEAAAAGAAIAAAAUAAIAAAAGAAMAAAAUAAMAAAAGAAQAAAAUAAQAAAAGAAUAAAAUAAUAAAAGAAYAAAAUAAYAAAAGAAcAAAAUAAcAAAAGAAgAAAAUAAgAAAAGAAkAAAAUAAkAAAAGAAoAAAAUAAoAAAAGAAsAAAA=")
+tile_set = SubResource("TileSet_5rc8o")
+
+[connection signal="pressed" from="HUD/TouchScreenButton" to="Caminhao_Player" method="_on_touch_screen_button_pressed"]
+[connection signal="analogic_change" from="HUD/VirtualJoystick" to="Caminhao_Player" method="_on_virtual_joystick_analogic_change"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

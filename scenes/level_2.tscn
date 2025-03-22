@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://u3eameqlf3gw"]
+[gd_scene load_steps=11 format=4 uid="uid://u3eameqlf3gw"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_7nqxw"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_wlumy"]
 [ext_resource type="Texture2D" uid="uid://cu5vq4rkmb8o5" path="res://Coins/Coins/Coins/Large Diminsions/Large/Gold 10 Piece.png" id="3_8x7ep"]
 [ext_resource type="PackedScene" uid="uid://dbok50sjd5una" path="res://scenes/cell_phone.tscn" id="4_xoxxc"]
+[ext_resource type="Texture2D" uid="uid://c8bbwwd7i723w" path="res://Terrain/kitchen/tileset.png" id="5_2eu51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgbh4"]
 size = Vector2(45, 722)
@@ -12,6 +13,87 @@ size = Vector2(45, 722)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u7wh"]
 size = Vector2(1280, 26)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5degq"]
+texture = ExtResource("5_2eu51")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+6:13/0 = 0
+6:14/0 = 0
+5:13/0 = 0
+5:14/0 = 0
+7:14/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+8:14/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_v4oo4"]
+sources/0 = SubResource("TileSetAtlasSource_5degq")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_wlumy")
@@ -84,7 +166,7 @@ texture = ExtResource("3_8x7ep")
 
 [node name="Label" type="Label" parent="HUD"]
 offset_left = 64.0
-offset_right = 128.0
+offset_right = 160.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -119,6 +201,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2(8, -3)
 shape = SubResource("RectangleShape2D_6u7wh")
+
+[node name="cenario" type="Node2D" parent="."]
+
+[node name="mesa" type="TileMapLayer" parent="cenario"]
+tile_map_data = PackedByteArray("AAAYACwAAAAGAA0AAAAZACwAAAAHAA4AAGAYACsAAAAGAA0AAAAZACsAAAAHAA4AAGAYACoAAAAGAA0AAAAZACoAAAAHAA4AAGAYACkAAAAGAA0AAAAZACkAAAAHAA4AAGAYACgAAAAGAA0AAAAZACgAAAAHAA4AAGAYACcAAAAGAA0AAAAZACcAAAAHAA4AAGAYACYAAAAGAA0AAAAZACYAAAAHAA4AAGAYACUAAAAGAA0AAAAZACUAAAAHAA4AAGAYACQAAAAGAA0AAAAZACQAAAAHAA4AAGAYACMAAAAGAA0AAAAZACMAAAAHAA4AAGAYACIAAAAGAA0AAAAZACIAAAAHAA4AAGAYACEAAAAGAA0AAAAZACEAAAAHAA4AAGAYACAAAAAGAA0AAAAZACAAAAAHAA4AAGAYAB8AAAAGAA0AAAAZAB8AAAAHAA4AAGAYAB4AAAAGAA0AAAAZAB4AAAAHAA4AAGAYAB0AAAAGAA0AAAAZAB0AAAAHAA4AAGAYABwAAAAGAA0AAAAZABwAAAAHAA4AAGAYABsAAAAGAA0AAAAZABsAAAAHAA4AAGAYABoAAAAGAA0AAAAZABoAAAAHAA4AAGAYABkAAAAGAA0AAAAZABkAAAAHAA4AAGAYABgAAAAGAA0AAAAZABgAAAAHAA4AAGAYABcAAAAGAA0AAAAZABcAAAAHAA4AAGAYABYAAAAGAA0AAAAZABYAAAAHAA4AAGAYABUAAAAGAA0AAAAZABUAAAAHAA4AAGAYABQAAAAGAA0AAAAZABQAAAAHAA4AAGAYABMAAAAGAA0AAAAZABMAAAAHAA4AAGAYABIAAAAGAA0AAAAZABIAAAAHAA4AAGAYABEAAAAGAA0AAAAZABEAAAAHAA4AAGAYABAAAAAGAA0AAAAZABAAAAAHAA4AAGAYAA8AAAAGAA0AAAAZAA8AAAAHAA4AAGAYAA4AAAAGAA0AAAAZAA4AAAAHAA4AAGAYAA0AAAAGAA0AAAAZAA0AAAAHAA4AAGAYAAwAAAAGAA0AAAAZAAwAAAAHAA4AAGAYAAsAAAAGAA0AAAAZAAsAAAAHAA4AAGAYAAoAAAAGAA0AAAAZAAoAAAAHAA4AAGAYAAkAAAAGAA0AAAAZAAkAAAAHAA4AAGAYAAgAAAAGAA0AAAAZAAgAAAAHAA4AAGAYAAcAAAAGAA0AAAAZAAcAAAAHAA4AAGAYAAYAAAAGAA0AAAAZAAYAAAAHAA4AAGAYAAUAAAAGAA0AAAAZAAUAAAAHAA4AAGAYAAQAAAAGAA0AAAAZAAQAAAAHAA4AAGAYAAMAAAAGAA0AAAAZAAMAAAAHAA4AAGAYAAIAAAAGAA0AAAAZAAIAAAAHAA4AAGAYAAEAAAAGAA0AAAAZAAEAAAAHAA4AAGAYAAAAAAAGAA0AAAAZAAAAAAAHAA4AAGAYAP//AAAGAA0AAAA=")
+tile_set = SubResource("TileSet_v4oo4")
 
 [connection signal="body_entered" from="Forno" to="." method="_on_forno_body_entered"]
 [connection signal="timeout" from="Forno/Timer" to="." method="_on_timer_timeout"]

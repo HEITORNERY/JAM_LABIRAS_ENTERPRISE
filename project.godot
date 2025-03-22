@@ -27,7 +27,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
 
 [input]
 

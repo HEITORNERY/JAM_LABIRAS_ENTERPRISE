@@ -58,3 +58,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 14
 text = "Recusar e perca tudo"
 flat = true
+
+[connection signal="pressed" from="Panel/AceitarButton" to="." method="_on_aceitar_button_pressed"]
+[connection signal="pressed" from="Panel/RecusarButton" to="." method="_on_recusar_button_pressed"]

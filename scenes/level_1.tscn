@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dvkk3wk3npvio"]
+[gd_scene load_steps=31 format=4 uid="uid://dvkk3wk3npvio"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_65y7v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifshi"]
@@ -168,6 +168,9 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm7dy"]
+size = Vector2(1283, 127)
+
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_ifshi")
 
@@ -207,16 +210,6 @@ flat = true
 
 [node name="InventoryUI" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("4_i4oli")]
 player = NodePath("../../Player")
-
-[node name="ReloadButton" type="Button" parent="HUD"]
-offset_left = 1216.0
-offset_right = 1280.0
-offset_bottom = 31.0
-theme_override_constants/outline_size = 10
-text = "Reload"
-flat = true
-autowrap_mode = 3
-icon_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -303,8 +296,45 @@ script = ExtResource("12_08ww0")
 
 [node name="Timer" type="Timer" parent="Path2D2"]
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(604, 668)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(36.5, 37.5)
+shape = SubResource("RectangleShape2D_cm7dy")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(605, -114)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(36.5, 37.5)
+shape = SubResource("RectangleShape2D_cm7dy")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(-39, 290)
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(36.5, 37.5)
+shape = SubResource("RectangleShape2D_cm7dy")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(1396, 288)
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(36.5, 37.5)
+shape = SubResource("RectangleShape2D_cm7dy")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/InventoryButton" to="." method="_on_inventory_button_pressed"]
-[connection signal="pressed" from="HUD/ReloadButton" to="." method="_on_reload_button_pressed"]
 [connection signal="timeout" from="Path2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Path2D2/Timer" to="Path2D2/PathFollow2D" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_body_entered"]

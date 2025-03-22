@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://drxirgp0hfj7l" path="res://items/cell_phone.jpg" id="1_gyhpc"]
 [ext_resource type="Script" path="res://scripts/cell_phone.gd" id="2_gpg8m"]
 
+[sub_resource type="Animation" id="Animation_lyf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_q73on"]
 resource_name = "tocando"
 length = 0.6
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.140895, 0.390455, 0.195896, -0.10761, 0.110896, 0.107588]
-}
-
-[sub_resource type="Animation" id="Animation_lyf72"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_niyit"]

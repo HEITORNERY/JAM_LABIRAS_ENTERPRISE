@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player_2
 
-var SPEED : float = 100.0
+var SPEED : float = 300.0
 var joystick_can : bool = false
 var nivel : int = 1 # o nível serve para saber se o player pode vender esse bombom ou não
 var dash_speed : float = 800.0
@@ -15,10 +15,10 @@ var vector_joystick : Vector2
 
 func _ready() -> void:
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
-		$HUD.visible = true
+		$"../HUD".visible = true
 		joystick_can = true
 	else:
-		$HUD.queue_free()
+		$"../HUD".queue_free()
 		joystick_can = false
 
 func _physics_process(_delta: float) -> void:

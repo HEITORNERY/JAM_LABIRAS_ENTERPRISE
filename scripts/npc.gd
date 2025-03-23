@@ -123,13 +123,13 @@ func _on_timer_timeout() -> void:
 					compra_feita = true
 					$item.texture = null
 					Global.venda_feita(preco_bombom)
-			3:
+			2:
 				if Global.inventario["bombom_3"].quantidade >= 1:
 					Global.inventario["bombom_3"].quantidade -= 1
 					compra_feita = true
 					$item.texture = null
 					Global.venda_feita(preco_bombom)
-			4:
+			3:
 				if Global.inventario["bombom_4"].quantidade >= 1:
 					Global.inventario["bombom_4"].quantidade -= 1
 					compra_feita = true

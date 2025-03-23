@@ -7,3 +7,4 @@ func _ready() -> void:
 func _on_pressed() -> void:
 	# Altera a cena para a cena 1 (substitua o caminho pelo correto)
 	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	Global.inventario["bombom_1"].quantidade = 10

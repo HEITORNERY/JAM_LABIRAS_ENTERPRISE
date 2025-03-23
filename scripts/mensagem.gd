@@ -24,3 +24,4 @@ func _on_aceitar_button_pressed() -> void:
 func _on_recusar_button_pressed() -> void:
 	Global.gasto(Global.money_actual)
 	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	Global.inventario["bombom_1"].quantidade = 10

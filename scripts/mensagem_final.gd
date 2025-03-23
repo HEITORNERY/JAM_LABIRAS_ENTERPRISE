@@ -18,3 +18,4 @@ func iniciar_mensagem() -> void:
 func _on_button_pressed() -> void:
 	Global.money_actual = 0
 	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	Global.inventario["bombom_1"].quantidade = 10

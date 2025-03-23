@@ -17,10 +17,10 @@ var pedido_feito : bool = false
 
 func _ready() -> void:
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
-		$"../HUD".visible = true
+		$HUD.visible = true
 		joystick_can = true
 	else:
-		$"../HUD".queue_free()
+		$HUD.queue_free()
 		joystick_can = false
 
 func _physics_process(_delta: float) -> void:

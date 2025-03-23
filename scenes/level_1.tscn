@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dvkk3wk3npvio"]
+[gd_scene load_steps=28 format=4 uid="uid://dvkk3wk3npvio"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_65y7v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifshi"]
@@ -11,8 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c5du3pw1ff7o" path="res://Terrain/objects/1.png" id="8_r1yyf"]
 [ext_resource type="Texture2D" uid="uid://c0ye6bukl7813" path="res://Terrain/objects/BeachDayObjects (1).png" id="9_up52c"]
 [ext_resource type="Texture2D" uid="uid://blmwupm4e22rs" path="res://Terrain/objects/124x124.png" id="10_b3owv"]
-[ext_resource type="Script" path="res://scripts/path_follow_car_1.gd" id="12_08ww0"]
-[ext_resource type="Script" path="res://scripts/path_follow_car_2.gd" id="12_u66yc"]
+[ext_resource type="Script" path="res://scripts/carro_spaw_level_1.gd" id="12_ik0dm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001yl"]
 size = Vector2(10, 1280)
@@ -156,18 +155,6 @@ physics_layer_0/collision_layer = 7
 sources/0 = SubResource("TileSetAtlasSource_brgfy")
 sources/1 = SubResource("TileSetAtlasSource_f6s4e")
 
-[sub_resource type="Curve2D" id="Curve2D_j87mf"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 120, 0, 0, 0, 0, 128, 120, 0, 0, 0, 0, 288, 120, 0, 0, 0, 0, 472, 120, 0, 0, 0, 0, 640, 120, 0, 0, 0, 0, 808, 120, 0, 0, 0, 0, 1016, 120, 0, 0, 0, 0, 1192, 120, 0, 0, 0, 0, 1392, 120)
-}
-point_count = 9
-
-[sub_resource type="Curve2D" id="Curve2D_lryol"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, 64, 0, 0, 0, 0, 104, 64, 0, 0, 0, 0, 232, 64, 0, 0, 0, 0, 424, 64, 0, 0, 0, 0, 536, 64, 0, 0, 0, 0, 680, 64, 0, 0, 0, 0, 848, 64, 0, 0, 0, 0, 1048, 64, 0, 0, 0, 0, 1208, 64, 0, 0, 0, 0, 1384, 64)
-}
-point_count = 10
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm7dy"]
 size = Vector2(1283, 127)
 
@@ -180,14 +167,10 @@ script = ExtResource("1_ifshi")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Gold10Piece" type="Sprite2D" parent="HUD"]
-position = Vector2(14, 14)
-texture = ExtResource("3_pvjsx")
-
 [node name="Label" type="Label" parent="HUD"]
 offset_left = 31.0
 offset_right = 71.0
-offset_bottom = 28.0
+offset_bottom = 30.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1.8049e-08, 0, 0.0381065, 1)
@@ -198,6 +181,10 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Gold10Piece" type="Sprite2D" parent="HUD"]
+position = Vector2(14, 14)
+texture = ExtResource("3_pvjsx")
 
 [node name="InventoryButton" type="Button" parent="HUD"]
 offset_left = 1144.0
@@ -278,26 +265,6 @@ position = Vector2(25, -1)
 tile_map_data = PackedByteArray("AAACAAoAAQAAAAAAAAACAAsAAQAAAAEAAAADAAoAAQABAAAAAAADAAsAAQABAAEAAAABAA0AAQAGAAcAAAAHAAcAAAAAAAAAAAAIAAcAAAABAAAAAAAHAAgAAAABAAEAAAAIAAgAAAAEAAEAAAAEAAsAAQACAAcAAAAhABAAAQAGAAcAAAAYABEAAQABAAcAAAAcAAwAAQABAAYAAAANABEAAQAAAAcAAAASAA4AAQAAAAYAAAAKAAcAAAAAAAAAAAALAAcAAAABAAAAAAAKAAgAAAACAAEAAAALAAgAAAADAAEAAAAEAAcAAAAAAAAAAAAFAAcAAAABAAAAAAAEAAgAAAAEAAEAAAAFAAgAAAADAAEAAAABAAcAAAAAAAAAAAACAAcAAAABAAAAAAABAAgAAAACAAEAAAACAAgAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_wodtb")
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_j87mf")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(0, 120)
-script = ExtResource("12_u66yc")
-
-[node name="Timer" type="Timer" parent="Path2D"]
-one_shot = true
-
-[node name="Path2D2" type="Path2D" parent="."]
-curve = SubResource("Curve2D_lryol")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(-8, 64)
-script = ExtResource("12_08ww0")
-
-[node name="Timer" type="Timer" parent="Path2D2"]
-one_shot = true
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(604, 668)
 collision_layer = 0
@@ -332,11 +299,23 @@ collision_layer = 0
 position = Vector2(36.5, 37.5)
 shape = SubResource("RectangleShape2D_cm7dy")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-157, 38)
+script = ExtResource("12_ik0dm")
+
+[node name="Timer" type="Timer" parent="Marker2D"]
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(-157, 130)
+script = ExtResource("12_ik0dm")
+
+[node name="Timer" type="Timer" parent="Marker2D2"]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/InventoryButton" to="." method="_on_inventory_button_pressed"]
-[connection signal="timeout" from="Path2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
-[connection signal="timeout" from="Path2D2/Timer" to="Path2D2/PathFollow2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Marker2D2/Timer" to="Marker2D2" method="_on_timer_timeout"]

@@ -65,19 +65,19 @@ func _ready() -> void:
 		match bombom_escolhido:
 			0:
 				$item.texture = bombom_1
-				preco_bombom = 5
+				preco_bombom = 7
 				bombom_nivel = 1
 			1:
 				$item.texture = bombom_2
-				preco_bombom = 10
+				preco_bombom = 16
 				bombom_nivel = 2
 			2:
 				$item.texture = bombom_3
-				preco_bombom = 20
+				preco_bombom = 31
 				bombom_nivel = 3
 			3:
 				$item.texture = bombom_4
-				preco_bombom = 40
+				preco_bombom = 61
 				bombom_nivel = 4
 	
 	# no início o npc não compro nada
@@ -150,3 +150,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		elif body.nivel >= bombom_nivel and Global.inventario["bombom_4"].quantidade >= 1:
 			comprando = true
 			interagir_com_player()
+
+func _process(_delta: float) -> void:
+	if global_position.y >= 721 or global_position.x >= 1281:
+		queue_free()

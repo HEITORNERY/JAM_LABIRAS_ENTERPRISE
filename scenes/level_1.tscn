@@ -286,6 +286,7 @@ position = Vector2(0, 120)
 script = ExtResource("12_u66yc")
 
 [node name="Timer" type="Timer" parent="Path2D"]
+one_shot = true
 
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lryol")
@@ -295,6 +296,7 @@ position = Vector2(-8, 64)
 script = ExtResource("12_08ww0")
 
 [node name="Timer" type="Timer" parent="Path2D2"]
+one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(604, 668)

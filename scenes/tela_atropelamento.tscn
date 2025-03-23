@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cahvdtn8qu2g5"]
+[gd_scene load_steps=6 format=3 uid="uid://cahvdtn8qu2g5"]
 
 [ext_resource type="Texture2D" uid="uid://0kp7vywknwpq" path="res://Terrain/death scene/tela de atropelamento.jpg" id="1_ejc8s"]
 [ext_resource type="Script" path="res://scripts/restart3.gd" id="2_vumy3"]
+[ext_resource type="Script" path="res://scripts/returnhome2.gd" id="3_bhgjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jirt"]
 texture = ExtResource("1_ejc8s")
@@ -27,5 +28,9 @@ flat = true
 script = ExtResource("2_vumy3")
 
 [node name="home" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 696.0
+offset_top = 407.0
+offset_right = 818.0
+offset_bottom = 522.0
+flat = true
+script = ExtResource("3_bhgjg")

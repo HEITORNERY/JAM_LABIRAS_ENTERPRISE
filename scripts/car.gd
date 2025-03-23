@@ -16,5 +16,5 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
-		get_tree().reload_current_scene()
+	if body is Player_2:
+		get_tree().change_scene_to_file("res://scenes/tela_atropelamento.tscn")

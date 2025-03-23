@@ -65,19 +65,19 @@ func _ready() -> void:
 		match bombom_escolhido:
 			0:
 				$item.texture = bombom_1
-				preco_bombom = 3
+				preco_bombom = 5
 				bombom_nivel = 1
 			1:
 				$item.texture = bombom_2
-				preco_bombom = 4
+				preco_bombom = 10
 				bombom_nivel = 2
 			2:
 				$item.texture = bombom_3
-				preco_bombom = 5
+				preco_bombom = 20
 				bombom_nivel = 3
 			3:
 				$item.texture = bombom_4
-				preco_bombom = 6
+				preco_bombom = 40
 				bombom_nivel = 4
 	
 	# no início o npc não compro nada

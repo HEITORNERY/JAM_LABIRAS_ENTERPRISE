@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://dlp6phur5v6q3"]
+[gd_scene load_steps=6 format=3 uid="uid://dlp6phur5v6q3"]
+
+[ext_resource type="Texture2D" uid="uid://bit4r2wahieel" path="res://fundo mensagens/home.jpg" id="1_qrdwp"]
+[ext_resource type="Script" path="res://scripts/jogar.gd" id="2_p5eco"]
+[ext_resource type="Script" path="res://scripts/creditos.gd" id="3_fb45t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xo6w"]
+texture = ExtResource("1_qrdwp")
+texture_region_size = Vector2i(1280, 720)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dt7xf"]
+tile_size = Vector2i(1280, 720)
+sources/0 = SubResource("TileSetAtlasSource_1xo6w")
 
 [node name="Home" type="Node2D"]
+
+[node name="fundo" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_dt7xf")
+
+[node name="jogar" type="Button" parent="."]
+offset_left = 473.0
+offset_top = 356.0
+offset_right = 781.0
+offset_bottom = 493.0
+flat = true
+script = ExtResource("2_p5eco")
+
+[node name="creditos" type="Button" parent="."]
+offset_left = 510.0
+offset_top = 537.0
+offset_right = 742.0
+offset_bottom = 630.0
+flat = true
+script = ExtResource("3_fb45t")

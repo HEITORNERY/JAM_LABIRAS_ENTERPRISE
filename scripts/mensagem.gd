@@ -23,4 +23,4 @@ func _on_aceitar_button_pressed() -> void:
 
 func _on_recusar_button_pressed() -> void:
 	Global.gasto(Global.money_actual)
-	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+	get_tree().change_scene_to_file("res://scenes/home.tscn")

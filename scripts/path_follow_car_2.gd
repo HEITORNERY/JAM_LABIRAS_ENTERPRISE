@@ -9,8 +9,6 @@ func _ready() -> void:
 	$"../../Path2D2/Timer".start(0.4)
 	car_instance = car_1.instantiate()
 	add_child(car_instance)
-	$"../../Path2D2/Timer"
-
 
 func _physics_process(_delta: float) -> void:
 	progress_ratio += speed * _delta / get_parent().curve.get_baked_length()
@@ -18,4 +16,6 @@ func _physics_process(_delta: float) -> void:
 		car_instance.queue_free()
 
 func _on_timer_timeout() -> void:
-	$"../../Path2D2/Timer"
+	car_instance = car_1.instantiate()
+	add_child(car_instance)
+	$"../../Path2D2/Timer".start(0.4)

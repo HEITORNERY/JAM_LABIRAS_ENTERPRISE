@@ -19,7 +19,7 @@ func spawn_enemy() -> void:
 
 	if going_up:
 		var posicao_x = left_cars[randi() % left_cars.size()]
-		car.position = Vector2(posicao_x, 650)  # Nasce embaixo
+		car.position = Vector2(posicao_x, 800)  # Nasce embaixo
 		car.direction_move = Vector2.UP # Sobe
 
 	if going_down:

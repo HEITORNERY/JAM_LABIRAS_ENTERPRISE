@@ -289,4 +289,19 @@ shape = SubResource("RectangleShape2D_0liwh")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 
+[node name="Label" type="Label" parent="."]
+offset_left = -97.0
+offset_top = -11.0
+offset_right = -5.0
+offset_bottom = 12.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+text = "Me atenda"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="body_entered" from="DetectionPedido" to="." method="_on_detection_pedido_body_entered"]

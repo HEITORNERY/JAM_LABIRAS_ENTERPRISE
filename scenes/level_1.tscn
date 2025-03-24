@@ -306,7 +306,7 @@ script = ExtResource("12_ik0dm")
 [node name="Timer" type="Timer" parent="Marker2D"]
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(-157, 130)
+position = Vector2(-291, 130)
 script = ExtResource("12_ik0dm")
 
 [node name="Timer" type="Timer" parent="Marker2D2"]

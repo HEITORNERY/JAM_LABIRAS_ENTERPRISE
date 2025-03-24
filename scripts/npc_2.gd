@@ -25,6 +25,7 @@ func _on_detection_pedido_body_entered(body: Node2D) -> void:
 		if body.pedido_para_fazer == null:
 			parado_para_receber_pedido = true
 			body.pedido_para_fazer = sprite_pedido
+			$Label.text = "Cadê meu pedido ?"
 		elif body.pedido_feito == true and body.pedido_para_fazer == sprite_pedido:
 			Global.venda_feita(money_pedido)
 			body.pedido_para_fazer = null
@@ -32,6 +33,7 @@ func _on_detection_pedido_body_entered(body: Node2D) -> void:
 			queue_free()
 
 func _ready() -> void:
+	$Label.text = "Me atenda !"
 	var random_pedido : int = randi() % 4
 	match random_pedido:
 		0:

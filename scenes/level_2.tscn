@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://u3eameqlf3gw"]
+[gd_scene load_steps=23 format=4 uid="uid://u3eameqlf3gw"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_7nqxw"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_wlumy"]
 [ext_resource type="Texture2D" uid="uid://cu5vq4rkmb8o5" path="res://Coins/Coins/Coins/Large Diminsions/Large/Gold 10 Piece.png" id="3_8x7ep"]
+[ext_resource type="Script" path="res://scripts/car_spawn_level_2.gd" id="3_uheir"]
 [ext_resource type="PackedScene" uid="uid://dbok50sjd5una" path="res://scenes/cell_phone.tscn" id="4_xoxxc"]
 [ext_resource type="Texture2D" uid="uid://c8bbwwd7i723w" path="res://Terrain/kitchen/tileset.png" id="5_2eu51"]
 [ext_resource type="Texture2D" uid="uid://bk6fe145ugytt" path="res://Terrain/road assets/tree.png" id="6_dqq2e"]
@@ -1121,6 +1122,18 @@ position = Vector2(-72, 448)
 [node name="Marker2D4" type="Marker2D" parent="."]
 position = Vector2(-72, 656)
 
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(924, 825)
+script = ExtResource("3_uheir")
+
+[node name="Timer" type="Timer" parent="Marker2D5"]
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(1120, 907)
+script = ExtResource("3_uheir")
+
+[node name="Timer" type="Timer" parent="Marker2D6"]
+
 [node name="Forno" type="Area2D" parent="."]
 position = Vector2(474, 34)
 
@@ -1157,7 +1170,7 @@ scale = Vector2(0.0511161, 0.0524554)
 texture = ExtResource("3_8x7ep")
 
 [node name="Label" type="Label" parent="HUD"]
-offset_left = 64.0
+offset_left = 22.0
 offset_right = 160.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1216,5 +1229,7 @@ z_index = -4
 tile_map_data = PackedByteArray("AAAMAAoAAAAAAAIAAAAMAAsAAAAAAAIAAAAMAAkAAAAAAAIAAAAMAAgAAAAAAAIAAAAMAAcAAAAAAAIAAAAMAAYAAAAAAAIAAAAMAAUAAAAAAAIAAAAMAAQAAAAAAAIAAAAMAAMAAAAAAAIAAAAMAAIAAAAAAAIAAAAMAAEAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAAAAIAAAANAAAAAQAAAAAAAAANAAEAAQAAAAEAAAANAAIAAQAAAAIAAAANAAMAAQAAAAMAAAANAAQAAQAAAAQAAAANAAUAAQAAAAUAAAAOAAAAAQABAAAAAAAOAAEAAQABAAEAAAAOAAIAAQABAAIAAAAOAAMAAQABAAMAAAAOAAQAAQABAAQAAAAOAAUAAQABAAUAAAAPAAAAAQACAAAAAAAPAAEAAQACAAEAAAAPAAIAAQACAAIAAAAPAAMAAQACAAMAAAAPAAQAAQACAAQAAAAPAAUAAQACAAUAAAAQAAAAAQADAAAAAAAQAAEAAQADAAEAAAAQAAIAAQADAAIAAAAQAAMAAQADAAMAAAAQAAQAAQADAAQAAAAQAAUAAQADAAUAAAARAAAAAQAEAAAAAAARAAEAAQAEAAEAAAARAAIAAQAEAAIAAAARAAMAAQAEAAMAAAARAAQAAQAEAAQAAAARAAUAAQAEAAUAAAASAAAAAQAFAAAAAAASAAEAAQAFAAEAAAASAAIAAQAFAAIAAAASAAMAAQAFAAMAAAASAAQAAQAFAAQAAAASAAUAAQAFAAUAAAANAAYAAQAAAAIAAAANAAcAAQAAAAMAAAANAAgAAQAAAAQAAAANAAkAAQAAAAUAAAANAAoAAQAAAAQAAAANAAsAAQAAAAUAAAAOAAYAAQABAAIAAAAOAAcAAQABAAMAAAAOAAgAAQABAAQAAAAOAAkAAQABAAUAAAAOAAoAAQABAAQAAAAOAAsAAQABAAUAAAAPAAYAAQACAAIAAAAPAAcAAQACAAMAAAAPAAgAAQACAAQAAAAPAAkAAQACAAUAAAAPAAoAAQACAAQAAAAPAAsAAQACAAUAAAAQAAYAAQADAAIAAAAQAAcAAQADAAMAAAAQAAgAAQADAAQAAAAQAAkAAQADAAUAAAAQAAoAAQADAAQAAAAQAAsAAQADAAUAAAARAAYAAQAEAAIAAAARAAcAAQAEAAMAAAARAAgAAQAEAAQAAAARAAkAAQAEAAUAAAARAAoAAQAEAAQAAAARAAsAAQAEAAUAAAASAAYAAQAFAAIAAAASAAcAAQAFAAMAAAASAAgAAQAFAAQAAAASAAkAAQAFAAUAAAASAAoAAQAFAAQAAAASAAsAAQAFAAUAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAATAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_85qwl")
 
+[connection signal="timeout" from="Marker2D5/Timer" to="Marker2D5" method="_on_timer_timeout"]
+[connection signal="timeout" from="Marker2D6/Timer" to="Marker2D6" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Forno" to="." method="_on_forno_body_entered"]
 [connection signal="timeout" from="Forno/Timer" to="." method="_on_timer_timeout"]

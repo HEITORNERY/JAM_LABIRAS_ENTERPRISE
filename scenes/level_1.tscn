@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dvkk3wk3npvio"]
+[gd_scene load_steps=29 format=4 uid="uid://dvkk3wk3npvio"]
 
 [ext_resource type="PackedScene" uid="uid://cska3whpoh5e5" path="res://scenes/player.tscn" id="1_65y7v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifshi"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ye6bukl7813" path="res://Terrain/objects/BeachDayObjects (1).png" id="9_up52c"]
 [ext_resource type="Texture2D" uid="uid://blmwupm4e22rs" path="res://Terrain/objects/124x124.png" id="10_b3owv"]
 [ext_resource type="Script" path="res://scripts/carro_spaw_level_1.gd" id="12_ik0dm"]
+[ext_resource type="AudioStream" uid="uid://cm3fs0a1b6q0u" path="res://sounds/fase1.mp3" id="13_ynmff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001yl"]
 size = Vector2(10, 1280)
@@ -310,6 +311,10 @@ position = Vector2(-291, 130)
 script = ExtResource("12_ik0dm")
 
 [node name="Timer" type="Timer" parent="Marker2D2"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ynmff")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/InventoryButton" to="." method="_on_inventory_button_pressed"]

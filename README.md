@@ -20,5 +20,5 @@ Experimente jogar online acessando:
 
 ## Autores
 
-- **José Heitor Nery Viana**
-- **Juan Victor**
+- [**José Heitor Nery Viana**](https://www.linkedin.com/in/jos%C3%A9-heitor-nery-viana-a707a8243/)
+- [**Juan Victor Bastos Oliveira**](https://www.linkedin.com/in/juan-victor-6a7804337/)
